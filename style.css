@@ -319,22 +319,23 @@ form .btn2{
     color: #ff004f;
 }
 
- /*-----------------css for small screen------------
-nav .fas{
+ /*-----------------css for small screen------------*/
+
+nav .fa-solid {
     display: none;
-}
-@media only screen and(max-width: 600px){
+ }
+@media only screen and (max-width:600px){
     #header{
-        background-image: url(images/phone-background.png)
+        background-image: url(images/phone\ bgg\ \(1\).png);
     }
     .header-text{
-        margin-top: 100%;
-        font-size: 16px;
+        margin-top: 60%;
+        font-size: 19px;
     }
     .header-text h1{
-        font-size: 30px;
+        font-size: 40px;
     }
-    nav .fas{
+    nav .fa-solid{
         display: block;
         font-size: 25px;
     }
@@ -353,7 +354,7 @@ nav .fas{
         display: block;
         margin: 25px;
     }
-    nav ul .fas{
+    nav ul .fa-solid{
         position:absolute;
         top: 25px;
         left: 25px;
@@ -382,7 +383,8 @@ nav .fas{
         font-size: 14px;
     }
 }
----*/
+
+
 #msg{
     color: #61b752;
     margin-right: -100px;
