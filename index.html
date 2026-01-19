@@ -1,227 +1,302 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script src="https://kit.fontawesome.com/a85fbc0d30.js" crossorigin="anonymous"></script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CodeWithMani | Developer Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="#" href="https://fontawesome.com/icons/link?f=classic&s=solid">
-    <link rel="icon" type="images" href="images/favicon.png">
-    <script src="https://kit.fontawesome.com/a85fbc0d30.js" crossorigin="anonymous"></script>
-    
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CodeWithMani | Portfolio</title>
+
+<!-- FontAwesome -->
+<script src="https://kit.fontawesome.com/a85fbc0d30.js" crossorigin="anonymous"></script>
+
+<style>
+/* ------------------ GLOBAL ------------------ */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Poppins', sans-serif;
+}
+html{scroll-behavior:smooth;}
+body{
+    background:#0f0f0f;
+    color:#fff;
+}
+
+/* ------------------ HEADER ------------------ */
+#header{
+    height:100vh;
+    background:linear-gradient(120deg,#000,#1a1a1a);
+}
+.container{padding:20px 10%;}
+
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+.logo{width:140px;}
+
+nav ul li{
+    display:inline-block;
+    margin:10px 20px;
+}
+nav ul li a{
+    color:#fff;
+    text-decoration:none;
+    position:relative;
+}
+nav ul li a::after{
+    content:'';
+    width:0;
+    height:2px;
+    background:#ff004f;
+    position:absolute;
+    left:0;
+    bottom:-6px;
+    transition:0.4s;
+}
+nav ul li a:hover::after{width:100%;}
+
+.header-text{
+    margin-top:20%;
+}
+.header-text h1{
+    font-size:55px;
+}
+.header-text span{color:#ff004f;}
+.typing{
+    color:#ff004f;
+    font-size:22px;
+}
+
+/* ------------------ ANIMATION ------------------ */
+.reveal{
+    opacity:0;
+    transform:translateY(50px);
+    transition:0.8s ease;
+}
+.reveal.active{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* ------------------ ABOUT ------------------ */
+#about img{
+    width:100%;
+    border-radius:15px;
+}
+.row{
+    display:flex;
+    gap:40px;
+    margin-top:80px;
+}
+.sub-title{
+    font-size:40px;
+    margin-bottom:20px;
+}
+
+/* ------------------ SKILLS TABS ------------------ */
+.tab-links{
+    margin-right:30px;
+    cursor:pointer;
+    display:inline-block;
+}
+.tab-links.active-link{
+    color:#ff004f;
+}
+.tab-contents{display:none;}
+.tab-contents.active-tab{display:block;}
+
+/* ------------------ CERTIFICATION ------------------ */
+.services-list{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:30px;
+}
+.services-list div{
+    background:#1c1c1c;
+    padding:30px;
+    border-radius:15px;
+    transition:0.4s;
+}
+.services-list div:hover{
+    transform:translateY(-10px);
+    box-shadow:0 10px 30px rgba(255,0,79,0.4);
+}
+
+/* ------------------ PORTFOLIO ------------------ */
+.work-list{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:30px;
+}
+.work{
+    position:relative;
+    overflow:hidden;
+    border-radius:15px;
+}
+.work img{
+    width:100%;
+    transition:0.5s;
+}
+.layer{
+    position:absolute;
+    inset:0;
+    background:linear-gradient(rgba(0,0,0,0.2),#ff004f);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    opacity:0;
+    transition:0.5s;
+}
+.work:hover img{transform:scale(1.1);}
+.work:hover .layer{opacity:1;}
+
+/* ------------------ BUTTON ------------------ */
+.btn{
+    display:inline-block;
+    margin-top:20px;
+    padding:14px 40px;
+    border:1px solid #ff004f;
+    color:#fff;
+    text-decoration:none;
+    transition:0.4s;
+}
+.btn:hover{
+    background:#ff004f;
+    transform:translateY(-5px);
+}
+
+/* ------------------ CONTACT ------------------ */
+.contact-left a{color:#fff;}
+.social-icons a{
+    margin-right:15px;
+    font-size:22px;
+    transition:0.3s;
+}
+.social-icons a:hover{
+    color:#ff004f;
+    transform:translateY(-5px);
+}
+
+/* ------------------ FOOTER ------------------ */
+.copyright{
+    text-align:center;
+    padding:20px;
+    background:#000;
+}
+</style>
 </head>
+
 <body>
-    <div id="header">
-        <div class="container">
-            <nav>
-                <img src="images/LOGO.png" class="logo">
-                <ul id="sidemenu">
-                    <li><a href="#header">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#Certification">Certification</a></li>
-                    <li><a href="#portfolio">portfolio</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                    <i class="fa-solid fa-xmark" onclick="closemenu()"></i>  
-                </ul>
-                <i class="fa-solid fa-bars" onclick="openmenu()"></i>       
-            </nav>
-            <div class="header-text">
-                <p>Full-Stack Developer</p>
-                <h1>Hi, I'm <span>Manikandan</span><br> aka <span>CodeWithMani</span></h1>
-            </div>
-            
 
-            
-        </div>
-    </div>
+<!-- ================= HEADER ================= -->
+<div id="header">
+<div class="container">
+<nav>
+<img src="images/LOGO.png" class="logo">
+<ul>
+<li><a href="#header">Home</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#Certification">Certification</a></li>
+<li><a href="#portfolio">Work</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
 
-    <!---------------about-------- -->
-    <div id="about">
-        <div class="container">
-            <div class="row">
-                <div class="about-col-1">
-                    <img src="images/money.jpg">
-                </div>
-                <div  class="about-col-2">
-                    <h1 class="sub-title">About Me</h1>
-                    <p>I am a passionate Full-Stack Developer with a strong interest in web and mobile application development. I believe that learning is a continuous journey, and with dedication and persistence, any technology can be mastered to build innovative and impactful solutions.</p>
-
-                        <div class="tab-titles">
-                            <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
-                            <p class="tab-links" onclick="opentab('experience')">Experience</p>
-                            <p class="tab-links" onclick="opentab('education')">Education</p>
-                        </div>
-                        <div class="tab-contents active-tab" id="skills">
-                            <ul>
-                                <li><span>UI/UX</span><br>Designing web & mobile applications</li>
-                                <li><span>Web Development</span><br>HTML, CSS, JavaScript, jQuery, AJAX</li>
-                                <li><span>Full-Stack Development</span><br>.NET, MySQL, Flutter, FlutterFlow</li>
-                                <li><span>Programming Languages</span><br>C, Java, SQL</li>
-                                <li><span>AI & Automation</span><br>Exploring AI integration in applications</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="tab-contents" id="experience">
-                            <ul>
-                                <li><span>May 2024 - Present</span><br>Working as a Software Developer at Version Technology.</li>
-                                <li><span>Dec 2022 - March 2023</span><br>Completed an internship at Pantech Solution as a Web Developer.</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="tab-contents" id="education">
-                            <ul><li><span>2019-2023</span><br>BE Computer science Engineering at Velammal Engineering College<br> 9.02/10 cgpa</li>
-                                <li><span>2018-2019</span><br>HSC at K.C.S Higher Secondary School <br> 83.83%</li>
-                                <li><span>2016-2017</span><br>SSLC at Dominic Savio matric.School <br> 95.4%</li>
-
-                            </ul>
-                        </div>
-                    </div>
-                </div>    
-            </div>
-        </div>
-    </div>
-
-    <!----------------Services---------->
-    <div id="Certification">
-        <div class="container">
-            <h1 class="sub-title">Certification</h1>
-            <div class="services-list">
-                <div>
-                    <h2>Mastered Web Development</h2>
-                    <p>At Udemy</p>
-                    <a href="images/mani udemy-1.pdf">Learn more</a>
-                </div>
-                <div>
-                    <h2>Java Programming </h2>
-                    <p>At Great Learning Academy</p>
-                    <a href="images/Manikandan java.pdf">Learn more</a>
-                </div>
-                <div>
-                    <h2>UI/UX </h2>
-                    <p>At Udemy</p>
-                    <a href="images/mani uiux.pdf">Learn more</a>
-                </div>
-            </div>
-        </div>
-    </div>
-<!--------------portfolio-------------->
-     <div id="portfolio">
-        <div class="container">
-            <h1 class="sub-title">My Work</h1>
-            <div class="work-list">
-                <div class="work">
-                    <img src="images/breakout.png">
-                    <div class="layer">
-                        <a href="#"><i class="fa-solid fa-basketball"></i></a>  
-                        <h3>BREAKOUT GAME</h3>
-                        <p> The breakout game is a classic arcade game where a player controls a paddle to bounce a ball and break bricks, and I developed it using HTML, CSS, and JavaScript for interactive web-based gameplay.</p>
-                        <!-----add a a href tag in this line---->
-                    </div>
-                </div>
-                <div class="work">
-                    <img src="images/charity.jpg">                           <!-----add a a href tag in this line---->    
-                    <div class="layer">
-                        <a href="#"><i class="fa-solid fa-hand-holding-heart"></i></a>
-                        <h3>CHARITY WEB APPLICATION</h3>
-                        <p>I developed a user-friendly, secure, and scalable web-based Charity App facilitating connections between beneficiaries, donors, and volunteers, featuring secure transactions and real-time communication, all accessible through an online platform.</p>
-                                             <!-----add a a href tag in this line---->
-                    </div>
-                </div>
-                <div class="work">
-                    <img src="images/Doctoroxx.png">
-                    <div class="layer">
-                        <a href="#"><i class="fa-solid fa-stethoscope"></i></a> 
-                        <h3>Doctorxx - Smart Healthcare Solution</h3>
-                        <p>Developed a feature-rich healthcare application enabling doctors to manage patient prescriptions, lab tests, and vaccination records seamlessly. Integrated PDF generation for digital prescriptions, enhancing efficiency and record-keeping.</p>
-                    </div>
-                </div>
-            </div>
-            <!----------see more option  for my work is missing ----->
-        </div>
-     </div>
- <!-------------contact-------------->
-<div id="contact">
-    <div class="container">
-        <div class="row">
-            <div class="contact-left">
-                <h1 class="sub-title">Contact Me</h1>
-                <p><i class="fa-regular fa-paper-plane"></i>mknanda50@gmail.com</p>
-                <p><i class="fa-solid fa-square-phone"></i>9952936452</p>
-                <div class="social-icons">
-                    <a href="https://www.linkedin.com/in/mani-kandan-b349a0208/"><i class="fa-brands fa-linkedin"></i></a>
-                    <a href="https://github.com/manikandan1719"><i class="fa-brands fa-github"></i></a>
-                    <a href="https://www.instagram.com/m.o_n_e_y/"><i class="fa-brands fa-instagram"></i></a>
-                </div>
-                 <a href="images/Manikandan N resume.pdf" download class="btn btn2"> Download CV</a>
-            </div>
-            <div class="contact-right">
-                <form name="submit-to-google-sheet">
-                    <input type="text" name="Name" placeholder="Your Name" required>
-                    <input type="email" name="Email" placeholder="Your email" required>
-                    <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
-                    <button type="submit" class="btn btn2">Submit</button>       
-                </form>
-                <span id="msg"></span>
-            </div>
-        </div>
-    </div>
-    <div class="copyright">
-        <p>Copyrights @ Manikandan.Made with <i class="fa-solid fa-heart"></i> by Own </p>
-    </div>
-
+<div class="header-text">
+<p class="typing" id="typing"></p>
+<h1>Hi, I'm <span>Manikandan</span><br>aka <span>CodeWithMani</span></h1>
+</div>
+</div>
 </div>
 
+<!-- ================= ABOUT ================= -->
+<div id="about" class="reveal">
+<div class="container">
+<div class="row">
+<div>
+<img src="images/money.jpg">
+</div>
+<div>
+<h1 class="sub-title">About Me</h1>
+<p>Passionate Full-Stack Developer building modern web & mobile applications.</p>
+</div>
+</div>
+</div>
+</div>
 
+<!-- ================= CERTIFICATION ================= -->
+<div id="Certification" class="reveal">
+<div class="container">
+<h1 class="sub-title">Certification</h1>
+<div class="services-list">
+<div><h2>Web Development</h2><p>Udemy</p></div>
+<div><h2>Java</h2><p>Great Learning</p></div>
+<div><h2>UI/UX</h2><p>Udemy</p></div>
+</div>
+</div>
+</div>
 
+<!-- ================= PORTFOLIO ================= -->
+<div id="portfolio" class="reveal">
+<div class="container">
+<h1 class="sub-title">My Work</h1>
+<div class="work-list">
+<div class="work">
+<img src="images/breakout.png">
+<div class="layer"><h3>Breakout Game</h3></div>
+</div>
+<div class="work">
+<img src="images/charity.jpg">
+<div class="layer"><h3>Charity App</h3></div>
+</div>
+<div class="work">
+<img src="images/Doctoroxx.png">
+<div class="layer"><h3>Doctorxx</h3></div>
+</div>
+</div>
+<a href="#" class="btn">See More</a>
+</div>
+</div>
+
+<!-- ================= CONTACT ================= -->
+<div id="contact" class="reveal">
+<div class="container">
+<h1 class="sub-title">Contact Me</h1>
+<p>Email: mknanda50@gmail.com</p>
+<div class="social-icons">
+<a href="#"><i class="fab fa-linkedin"></i></a>
+<a href="#"><i class="fab fa-github"></i></a>
+</div>
+</div>
+</div>
+
+<div class="copyright">
+<p>© Manikandan | Made with ❤️</p>
+</div>
+
+<!-- ================= JS ================= -->
 <script>
-        var tablinks= document.getElementsByClassName("tab-links");
-        var tabcontents= document.getElementsByClassName("tab-contents");
+// typing animation
+const text=["Full-Stack Developer","UI/UX Designer","Software Engineer"];
+let i=0,j=0;
+function typing(){
+document.getElementById("typing").innerHTML=text[i].slice(0,++j);
+if(j==text[i].length){setTimeout(()=>{j=0;i=(i+1)%text.length},1000);}
+}
+setInterval(typing,150);
 
-        function opentab(tabname){
-            for(tablink of tablinks){
-                tablink.classList.remove("active-link");
-            }
-            for(tabcontent of tabcontents){
-                tabcontent.classList.remove("active-tab");
-            }
-            event.currentTarget.classList.add("active-link");
-            document.getElementById(tabname).classList.add("active-tab");
-
-        }
+// scroll animation
+window.addEventListener("scroll",()=>{
+document.querySelectorAll(".reveal").forEach(el=>{
+if(el.getBoundingClientRect().top<window.innerHeight-100){
+el.classList.add("active");
+}
+});
+});
 </script>
-
-<script>
-    var sidemenu=document.getElementById("sidemenu");
-
-    function openmenu(){
-        sidemenu.style.right="0";
-    }
-    function closemenu(){
-        sidemenu.style.right="-200px";
-    }
-
-</script>
-
-
-<script>
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbyehggSKOfVvjXdiKE2AZhwckcHgC9Z-C0eLohLwPaf1-BuXn_dVGApIPRkJtR3i8sN/exec'
-    const form = document.forms['submit-to-google-sheet']
-    const msg = document.getElementById("msg")
-    form.addEventListener('submit', e => {
-      e.preventDefault()
-      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-        .then(response =>{
-            msg.innerHTML="Message Sent Successfully"
-            setTimeout(function(){
-                    msg.innerHTML=""
-
-            },5000)
-            form.reset()
-        })
-        .catch(error => console.error('Error!', error.message))
-    })
-  </script>
 
 </body>
 </html>
